@@ -6,6 +6,9 @@ module.exports = {
 	list: (req, res) => {
 		Product.findAll().then((products) => {
 			res.json(products);
+		}).catch((error) => {
+			console.error(error);
+			res.status(400).json({ error: error.message });
 		});
 	},
 
@@ -13,6 +16,9 @@ module.exports = {
 	get: (req, res) => {
 		Product.findByPk(req.params.id).then((product) => {
 			res.json(product);
+		}).catch((error) => {
+			console.error(error);
+			res.status(400).json({ error: error.message });
 		});
 	},
 
@@ -22,7 +28,7 @@ module.exports = {
 		Product.create(req.body).then((product) => {
 			res.json(product);
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	},
@@ -40,7 +46,7 @@ module.exports = {
 				res.status(404).json({ error: 'Product not found' });
 			}
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	},
@@ -50,7 +56,7 @@ module.exports = {
 		Product.bulkCreate(req.body, { updateOnDuplicate: ['list_price', 'sale_price'], validate: false, ignoreDuplicates: true }).then((response) => {
 			res.json(response);
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	},
@@ -67,6 +73,9 @@ module.exports = {
 			} else {
 				res.status(404).json({ error: 'Product not found' });
 			}
+		}).catch((error) => {
+			console.error(error);
+			res.status(400).json({ error: error.message });
 		});
 	}
 };

@@ -15,7 +15,7 @@ const { Sequelize } = require('sequelize'),
 
 // Test the database connection.
 sequelize.authenticate().then(() => {
-	console.log('Connection has been established successfully.');
+	console.info('Connection has been established successfully.');
 }).catch((error) => {
 	console.error('Unable to connect to the database: ', error);
 });
@@ -25,7 +25,7 @@ for (const modelDefiner of modelDefiners) {
 }
 
 sequelize.sync({ force: false }).then(() => {
-	console.log('Database & tables created!');
+	console.info('Database & tables created!');
 });
 
 module.exports = sequelize;

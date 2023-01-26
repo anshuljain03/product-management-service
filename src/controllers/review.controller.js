@@ -10,6 +10,9 @@ module.exports = {
 			}
 		}).then((reviews) => {
 			res.json(reviews);
+		}).catch((error) => {
+			console.error(error);
+			res.status(400).json({ error: error.message });
 		});
 	},
 
@@ -17,6 +20,9 @@ module.exports = {
 	get: (req, res) => {
 		Review.findByPk(req.params.review_id).then((review) => {
 			res.json(review);
+		}).catch((error) => {
+			console.error(error);
+			res.status(400).json({ error: error.message });
 		});
 	},
 
@@ -27,7 +33,7 @@ module.exports = {
 		Review.create(req.body).then((review) => {
 			res.json(review);
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	},
@@ -45,7 +51,7 @@ module.exports = {
 				res.status(404).json({ error: 'Review not found' });
 			}
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	},
@@ -63,7 +69,7 @@ module.exports = {
 				res.status(404).json({ error: 'Review not found' });
 			}
 		}).catch((error) => {
-			console.log(error);
+			console.error(error);
 			res.status(400).json({ error: error.message });
 		});
 	}
