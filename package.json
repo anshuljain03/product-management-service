@@ -1,19 +1,31 @@
 {
   "name": "product-management-service",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Basic service to manage products",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "bash npm/start.sh",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-lint": "node npm/test-lint.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anshuljain03/product-managment-service.git"
   },
-  "author": "",
+  "author": "Anshul Jain",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anshuljain03/product-managment-service/issues"
   },
-  "homepage": "https://github.com/anshuljain03/product-managment-service#readme"
+  "homepage": "https://github.com/anshuljain03/product-managment-service#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "firebase": "^9.16.0",
+    "mysql2": "^3.0.1",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0"
+  }
 }
