@@ -23,3 +23,4 @@ Create a service to handle a products lifecycle
     ```
 4. Input the value as requested by the script.
 5. Once the server has started import the Postman Collection
+6. Use the Postman Collection to test out various APIs
